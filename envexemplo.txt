@@ -1,0 +1,5 @@
+#Para rodar com um banco de dados pessoal você pode usar o seguinte comando como URL
+
+DATABASE_URL="<Provedor_De_Database>://usuario:senha@localhost:<Numero_da_Porta>/<Nome_do_Banco_de_Dados>"
+
+#Mas esse código normalmente já vem com um exemplo do próprio banco utilizado então é só copiar e colar a URL aqui
