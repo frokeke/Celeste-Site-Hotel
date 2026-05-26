@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Minhas Reservas </title>
+    <link rel="stylesheet" href="./style/myReservations.css" >
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo-area">
+            <img class="logo-image" src="https://i.imgur.com/Dcg490I.png">
+            <h1>
+                Hotel Hub
+            </h1>
+        </div>
+
+        <nav class="nav">
+
+            <a href="./index.html"> Tela Inicial </a>
+
+            <a href="./myReservations.html"> Minhas Reservas </a>
+
+            <button class="logout-button" onclick="logout()" > Sair </button>
+        </nav>
+    </header>
+
+    <main class="main-container">
+
+        <h1 class="page-title"> Minhas Reservas </h1>
+
+        <div id="reservations-container" class="reservations-container"></div>
+    </main>
+
+    <script src="./js/myReservations.js">
+    </script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+Esta é a documentação das funções js criadas para o site(caso queira algo ou queira alterar algo me avise que eu o farei)
+
+Funções ligadas a usuário:
+
+postUsuario() <= Funções de tipo post faz com que um dado seja criado e enviado para o banco de dados. Neste caso ela criará
+um usuário.
+
+Funções ligadas a hoteis:
+
+getHotels() <= Esta função fará uma listagem dos hoteis criados e já armazenados no sistema.
+postHotels() <= Esta fará a criação de um hotel
+viewRooms() <= Esta apresentará os quartos ligados a um hotel em específico
+renderHotels() <= Fará a formatação em cartão dos hoteis cadastrados
+
+Funções ligadas a reserva:
+
+createReservation() <= Cria uma reserva em um quarto
+getReservation() <= Lista os hoteis
+renderReservation() <= Faz a formatação das reservas cadastradas
+
+Funções ligadas a quartos:
+
+getRooms() <= Lista os quartos de determinado hotel
+createRooms() <= Cria um quarto
+renderRooms() <= Faz a formatação dos quartos
+
+background-color: red;
+    border-radius: 20px;
+    overflow:-moz-hidden-unscrollable;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    width: max-content;
+
+    <style>
+        body{
+            background-image:url('merda.jpg');
+        }
+        </style>
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/styles.css">
+    <title>CELESTE</title>
+    
+</head>
+<body>
+    <h1>Celeste sdknfdsjk</h1>
+    <p>infelizmente, é a página principal.</p>
+    <button class="bcomeco">
+        <a href="hotel.html" class="button-link">VEJA</a>
+    </button>
+</body>
+<div id="hotelList"></div>
+<script src="./js/hoteis.js"></script>
+</html>
+
+
+
+
+  box-sizing: border-box;
+  width: 190px;
+  height: 254px;
+  background: #0adbc6;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  font-weight: bolder;
+  color: #f4f8f8;
+  min-height: 250px;
+
+  window.location.href = `http://localhost:3000/rooms/?hotelId=${hotelId}`
+
+
+  <!DOCTYPE html>
+<html>
+    <body>
+        <h1> Login </h1>
+
+        <form id="login-form">
+            <input type="email" id="email" placeholder="Email">
+            <input type="password" id="password" placeholder="Senha">
+            <button type="submit">deus por favo</button>
+        </form>
+        <script type="module" src="./js/login.js"></script>
+    </body>
+</html>
+
+
+import { checkAuth } from "./auth"
+
+const url = 'http://localhost:3000/reservations'
+
+checkAuth()
+
+async function createReservation() {
+
+    const reservationData = {
+
+        userId:
+            document.getElementById('userId').value,
+
+        roomId:
+            document.getElementById('roomId').value,
+
+        checkIn:
+            document.getElementById('checkIn').value,
+
+        checkOut:
+            document.getElementById('checkOut').value
+    }
+
+    try {
+
+        const response = await fetch(url, {
+
+                method: 'POST',
+
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+
+                body: JSON.stringify(reservationData)
+            }
+        )
+
+        const data =
+            await response.json()
+
+        console.log(data)
+
+        alert('Reserva criada!')
+
+        getReservations()
+
+    } catch (error) {
+
+        console.error(error)
+
+        alert('Erro ao criar reserva')
+    }
+}
+
+async function getReservations() {
+
+    try {
+
+        const response = await fetch(`${url}`)
+
+        const reservations =
+            await response.json()
+
+        renderReservations(reservations)
+
+    } catch (error) {
+
+        console.error(error)
+    }
+}
+
+function renderReservations(reservations) {
+
+    const reservationList = document.getElementById('reservation-list')
+
+    reservationList.innerHTML = ''
+
+    reservations.forEach(reservation => {
+
+        reservationList.innerHTML += `
+
+            <div class="reservation-card">
+
+                <h2> Reserva </h2>
+
+                <p> Check-in: ${reservation.checkIn} </p>
+
+                <p> Check-out: ${reservation.checkOut} </p>
+
+                <p> Total: R$ ${reservation.price} </p>
+
+            </div>
+        `
+    })
+}
+
+getReservations()

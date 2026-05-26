@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/roubo.css">
+    <link href="https://googleapis.com" rel="stylesheet">
+  <title>Celeste</title>
+</head>
+<body>
+  <header class="header">
+    <div class="logo-area">
+        <img src="https://i.imgur.com/Dcg490I.png" alt="logo" class="logo">
+        <h1>Celeste</h1>
+        <div>
+            <button class="login-button">
+                <a href="login.html"> Entrar </a>
+            </button>
+            <button class="my-reservations-button">
+                <a href="my-reservations.html"> Minhas Reservas </a>
+            </button>
+        </div>
+    </div>
+        <div class="search-box">
+        <input type="text" id="search-input" placeholder="Buscar hoteis">
+            <button onclick="searchHotels()"> Buscar </button>
+        </div>    
+    </header>
+    <main class="container">
+        <div id="hotelList" class="hotelList"></div>
+    </main>
+
+    <script src="./js/hoteis.js"></script>
+</body>
+</html>

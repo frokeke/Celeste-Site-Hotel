@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Reservar Quarto
+    </title>
+
+    <link rel="stylesheet" href="./style/reservations.css">
+
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo-area">
+        <img src="https://i.imgur.com/Dcg490I.png" alt="logo" class="logo">
+        <h1> Hotel Hub </h1>
+        </div>
+        <nav>
+            <a href="./index.html"> Hotéis </a>
+
+            <a href="./myReservations.html"> Minhas Reservas </a>
+        </nav>
+    </header>
+
+    <main class="reservation-container">
+
+        <div id="room-details" class="room-details">
+
+        </div>
+
+        <form id="reservation-form" class="reservation-form">
+
+            <h2> Fazer Reserva </h2>
+
+            <div class="input-group">
+
+                <label> Check-In </label>
+
+                <input type="date" id="checkIn" required>
+
+            </div>
+            <div class="input-group">
+
+                <label> Check-Out </label>
+
+                <input type="date" id="checkOut" required>
+            </div>
+            <button type="submit" class="reserve-button">
+                Reservar
+            </button>
+        </form>
+    </main>
+    <script src="./js/reservation.js">
+    </script>
+</body>
+</html>
